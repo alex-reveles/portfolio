@@ -1,8 +1,8 @@
 import json
 import os
 from typing import Any
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 from flask import Flask, jsonify, request, send_from_directory
 from openai import OpenAI
 
@@ -60,7 +60,7 @@ def analyze_text():
         return jsonify({"error": "Server missing OPENAI_API_KEY."}), 500
 
     try:
-        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        client = OpenAI(api_key=api_key)
         response = client.chat.completions.create(
             model=os.getenv('OPENAI_MODEL', 'gpt-4o-mini'),
             temperature=0.2,
