@@ -1,0 +1,142 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Reveles | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio website for Alex Reveles featuring selected projects, skills, and contact information."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="container nav">
+        <a class="logo" href="#home">AR</a>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#analyzer">AI Analyzer</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div id="home" class="container hero-content">
+        <p class="eyebrow">Portfolio Showcase</p>
+        <h1>Hi, I'm Alex. I build practical products that solve real problems.</h1>
+        <p class="hero-copy">
+          Welcome to my portfolio. Right now I’m showcasing one featured project, and this layout is prepared to grow
+          smoothly to 3–5 projects as I add more work.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View Project</a>
+          <a class="btn btn-secondary" href="#analyzer">Try AI Analyzer</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="projects" class="container section">
+        <div class="section-heading">
+          <h2>Featured Project</h2>
+          <p>
+            This section is powered by reusable project cards so I can easily expand to include 3–5 case studies.
+          </p>
+        </div>
+
+        <div id="project-grid" class="project-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="analyzer" class="container section">
+        <div class="section-heading">
+          <h2>AI Text Analyzer Demo</h2>
+          <p>
+            Paste text and call the Flask + OpenAI API to get a summary, sentiment, tone, keywords, and writing
+            suggestions.
+          </p>
+        </div>
+
+        <div class="analyzer-card">
+          <label for="input-text">Text to analyze</label>
+          <textarea id="input-text" rows="7" placeholder="Paste text here..."></textarea>
+          <button id="analyze-btn" class="btn btn-primary" type="button">Analyze Text</button>
+          <p id="analyzer-status" class="analyzer-status" aria-live="polite"></p>
+
+          <div id="analysis-result" class="analysis-result hidden">
+            <h3>Analysis Result</h3>
+            <p><strong>Summary:</strong> <span id="result-summary"></span></p>
+            <p><strong>Sentiment:</strong> <span id="result-sentiment"></span></p>
+            <p><strong>Tone:</strong> <span id="result-tone"></span></p>
+            <p><strong>Keywords:</strong> <span id="result-keywords"></span></p>
+            <ul id="result-suggestions"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="container section split">
+        <div>
+          <h2>About Me</h2>
+          <p>
+            I enjoy turning ideas into polished digital experiences with clean UI, clear structure, and measurable
+            outcomes.
+          </p>
+          <p>
+            My focus is building software that balances design and performance while staying easy to maintain and scale.
+          </p>
+        </div>
+
+        <div class="skills-card">
+          <h3>Core Skills</h3>
+          <ul>
+            <li>Frontend Development</li>
+            <li>Responsive Web Design</li>
+            <li>JavaScript & UI Architecture</li>
+            <li>Product Thinking</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="journey" class="container section split">
+        <div>
+          <h2>Learning Journey</h2>
+          <p>
+            I'm actively learning cloud computing, hosting, automation, website development, system design, and CI/CD
+            through this portfolio project.
+          </p>
+        </div>
+        <div class="skills-card">
+          <h3>Current Roadmap</h3>
+          <ul>
+            <li>✅ Portfolio shipped with static web stack</li>
+            <li>✅ Amplify staging deployment active</li>
+            <li>🔜 Add 3-5 project case studies</li>
+            <li>🔜 Add production branch and release checks</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="container section contact">
+        <h2>Let's connect</h2>
+        <p>If you'd like to collaborate, feel free to reach out.</p>
+        <a class="btn btn-primary" href="mailto:alex@example.com">alex@example.com</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Alex Reveles. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
