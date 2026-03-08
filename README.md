@@ -12,7 +12,7 @@ A responsive personal portfolio website built with HTML, CSS, JavaScript, and a 
 
 ## Run locally (AI Analyzer)
 
-+### 1) Install dependencies
+### 1) Install dependencies
 
 ```bash
 python3 -m venv .venv
@@ -63,4 +63,4 @@ You already have an **Amplify staging URL**, so this repo is optimized for an **
 
 ## System design notes
 
-+See `infra/architecture.md` for architecture and evolution steps.
+See `infra/architecture.md` for architecture and evolution steps.
