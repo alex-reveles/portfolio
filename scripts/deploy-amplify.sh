@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-set -euo pipefall
+set -euo pipefail
 
 if ! command -v aws >/dev/null 2>&1; then
   echo "Error: aws CLI is required." >&2
   exit 1
 fi
 
-if [[ $# -lt 2]]; then
+if [[ $# -lt 2 ]]; then
   echo "Usage: $0 <amplify-app-id> <branch-name> [aws-region]" >&2
   exit 1
 fi
