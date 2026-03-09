@@ -1,0 +1,36 @@
+name: Trigger AWS Amplify deployment
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      AMPLIFY_APP_ID: ${{ vars.AMPLIFY_APP_ID }}
+      AMPLIFY_BRANCH: ${{ vars.AMPLIFY_BRANCH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate required vars
+        run: |
+          test -n "$AWS_REGION" || (echo "Missing repository variable AWS_REGION" && exit 1)
+          test -n "$AMPLIFY_APP_ID" || (echo "Missing repository variable AMPLIFY_APP_ID" && exit 1)
+          test -n "$AMPLIFY_BRANCH" || (echo "Missing repository variable AMPLIFY_BRANCH" && exit 1)
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Trigger Amplify release job
+        run: ./scripts/deploy-amplify.sh "$AMPLIFY_APP_ID" "$AMPLIFY_BRANCH" "$AWS_REGION"
